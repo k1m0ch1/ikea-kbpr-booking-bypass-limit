@@ -16,21 +16,6 @@ headers = {
     "Origin": "https://ikea-booking.lenna.ai"
 }
 
-body = {
-    "name": "",
-    "phone_number": "",
-    "email": "",
-    "slot_open":"2021-04-15 8:00:00+00",
-    "slot_close":"2021-04-15 11:00:00+00",
-    "date": "",
-    "store_name":"IKEA Kota Baru Parahyangan",
-    "store_id": 2,
-    "slot_id": 0,
-    "qty": 0,
-    "age": "",
-    "address": ""
-}
-
 body_fake = {
     "name": ''.join(random.choice(string.ascii_uppercase) for _ in range(10)),
     "phone_number": f"+628{''.join(random.choice(string.digits) for _ in range(10))}",
@@ -46,8 +31,7 @@ body_fake = {
     "address": ''.join(random.choice(string.ascii_uppercase) for _ in range(25))
 }
 
-body['date'] = input("tanggal (YYYY-MM-DD) : ")
-body_fake['date'] = body['date']
+body_fake['date'] = input("tanggal (YYYY-MM-DD) : ")
 
 def checkDate(date, headers) -> dict:
     checkdate = requests.get(f"https://ikea-booking.lenna.ai/backend/public/api/public/list/2/{date}", headers=headers)
